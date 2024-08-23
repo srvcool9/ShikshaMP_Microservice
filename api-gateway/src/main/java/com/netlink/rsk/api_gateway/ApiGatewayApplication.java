@@ -15,7 +15,6 @@ import org.springframework.web.reactive.config.WebFluxConfigurer;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableWebFlux
 public class ApiGatewayApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
