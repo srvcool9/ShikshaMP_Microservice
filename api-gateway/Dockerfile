@@ -1,4 +1,4 @@
-FROM openjdk:11
-COPY target/rsk.war rsk.war
-ENTRYPOINT ["java","-jar","/rsk.war"]
-EXPOSE 8010
+FROM openjdk:17
+COPY target/api-gateway.war api-gateway.war
+ENTRYPOINT ["java","-jar","/api-gateway.war"]
+EXPOSE 9082
