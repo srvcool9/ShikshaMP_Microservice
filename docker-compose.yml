@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  eureka:
+    image: eureka   # Ensure this image exists or is correctly named
+    container_name: eureka
+    ports:
+      - "8010:8010"
+    networks:
+      - eureka-network
+
+  apigateway:
+    # Use this if you have a pre-built image
+    image: apigateway  # Replace with the actual image name
+    # Or use this to build from source with a Dockerfile in the default location
+    build: .  # If Dockerfile is in the same directory as docker-compose.yml
+    container_name: apigateway
+    ports:
+      - "9082:9082"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8010/eureka/
+    networks:
+      - eureka-network
+    depends_on:
+      - eureka
+
+networks:
+  eureka-network:
+    driver: bridge
