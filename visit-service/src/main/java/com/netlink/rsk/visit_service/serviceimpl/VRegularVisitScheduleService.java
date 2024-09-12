@@ -39,7 +39,7 @@ public class VRegularVisitScheduleService implements IVRegularVisitSchedule {
         if(scheduleList.isEmpty()){
             throw new NoDataFoundException("No data found...");
         }else {
-           scheduleList.get(0).setList(response.getData());
+          // scheduleList.get(0).setList(response.getData());
             return new Response("200","Data Fetched Successfully",scheduleList);
         }
     }
